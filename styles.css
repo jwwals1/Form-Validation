@@ -1,0 +1,22 @@
+/* body {
+    width: 200px;
+    margin: 0 auto;
+}
+
+p * {
+    display: block;
+} */
+
+input[type="email"] {
+    appearance: none;
+    /* width: 100%; */
+}
+
+input:invalid {
+    border-color: red;
+    background-color: lightcoral;
+}
+
+.error {
+    width: 100%;
+}
