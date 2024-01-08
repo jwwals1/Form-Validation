@@ -15,9 +15,16 @@
       <label for="country">Country: </label>
       <input type="text" name="country" id="country" required minlength="3" />
       <span class="error" aria-live="polite"></span><br />
-      <!-- <label for="zipeCode">Zip Code: </label>
-      <input type="number" id="zipCode" name="zipCode" required minlength="4" />
-      <span class="error" aria-live="polite"></span> -->
+      <label for="zipCode">Zip Code: </label>
+      <input
+        type="text"
+        id="zipCode"
+        name="zipCode"
+        required
+        minlength="4"
+        maxlength="10"
+      />
+      <span class="error" aria-live="polite"></span><br />
       <button>Submit</button>
     </form>
   </body>
