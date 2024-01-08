@@ -1,8 +1,10 @@
-const email = document.getElementById("email")
 const form = document.querySelector("form");
+const email = document.getElementById("email")
 const emailError = document.querySelector("#email + span.error");
-const country = document.getElementById('country')
-const countryError = document.querySelector("#country + span.error")
+const country = document.getElementById('country');
+const countryError = document.querySelector("#country + span.error");
+const zipCode = document.getElementById("zipCode");
+const zipCodeError = document.querySelector("#zipCode + span.error")
 
 
 email.addEventListener("input", (event) => {
@@ -23,8 +25,21 @@ country.addEventListener("input", (event) => {
     }
 })
 
+zipCode.addEventListener("input", (event) => {
+    if (zipCode.validity.valid) {
+        zipCodeError.textContent = ""
+        zipCodeError.className = "error"
+    } else {
+        showError();
+    }
+})
+
 form.addEventListener("submit", (event) => {
     if (!email.validity.valid) {
+        showError()
+        event.preventDefault()
+    }
+    else if (!country.validity.valid) {
         showError()
         event.preventDefault()
     }
@@ -51,5 +66,17 @@ function showError() {
     else if (country.validity.tooShort) {
         countryError.textContent = `Country should be at least ${country.minLength} characters; you entered ${country.value.length}.`
     }
+    else if (zipCode.validity.valueMissing){
+        zipCodeError.textContent = "You need to enter a zip code"
+    }
+    else if (zipCode.validity.typeMismatch) {
+        zipCodeError.textContent = "You need to enter a valid zip code"
+    }
+    else if (zipCode.validity.tooShort) {
+        zipCodeError.textContent = `Zip should be at least ${zipCode.minLength} characters; you entered ${zipCode.value.length}.`
+    }
+    // else if (country.validity.tooLong) {
+    //     zipCodeError.textContent = `Zip should be less than ${zipCode.maxLength} characters; you entered ${zipCode.value.length}.`
+    // }
     emailError.className = "error active"
 }
