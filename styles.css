@@ -1,15 +1,26 @@
-/* body {
-    width: 200px;
-    margin: 0 auto;
+body {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(to top, #09203f 0%, #537895 100%);
 }
 
-p * {
-    display: block;
-} */
+#wrapper {
+    display: flex;
+    border: solid;
+    background-color: white;
+    border: 0px;
+    border-radius: 10px;
+    width: 500px;
+    height: 400px;
+    padding: 10px;
+}
 
-input[type="email"] {
-    appearance: none;
-    /* width: 100%; */
+input {
+    margin-bottom: 5px;
+    margin-top: 5px;
+    display: block;
 }
 
 input:invalid {
@@ -34,8 +45,14 @@ input:valid {
 }
 
 ul {
-    /* padding: 0;
-    margin: 0;
-    box-sizing: border-box; */
     list-style-type: none;
+}
+
+button {
+    background-color: blue;
+    color: white;
+    border: 0px;
+    border-radius: 10px;
+    width: 60px;
+    height: 30px;
 }
