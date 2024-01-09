@@ -69,10 +69,12 @@ form.addEventListener("submit", (event) => {
         showError()
         event.preventDefault()
     }
+    else {
+        alert("Success!")
+    }
 })
 
 function showError() {
-    const passwordValue = document.getElementById('password').value
     if (email.validity.valueMissing) {
         emailError.textContent = "You need to enter an email address";
     } else if (email.validity.typeMismatch) {
@@ -98,18 +100,6 @@ function showError() {
     else if (zipCode.validity.tooShort) {
         zipCodeError.textContent = `Zip should be at least ${zipCode.minLength} characters; you entered ${zipCode.value.length}.`
     }
-    // else if (country.validity.tooLong) {
-    //     zipCodeError.textContent = `Zip should be less than ${zipCode.maxLength} characters; you entered ${zipCode.value.length}.`
-    // }
-    // else if(password.validity.valueMissing) {
-    //     passwordError.textContent = 'You need to enter a password'
-    // }
-    // else if (password.validity.tooShort) {
-    //     passwordError.textContent = `Zip should be at least ${password.minLength} characters; you entered ${password.value.length}.`
-    // }
-    // else if (passwordValue.search(/[a-z]/i) < 0) {
-    //     passwordError.textContent = "Your password must contain one  letter"
-    // }
     emailError.className = "error active"
 }
 
@@ -118,8 +108,6 @@ password.onkeyup = () => {
     let lowerCaseCharacter = /[a-z]/g;
     let upperCaseCharacter = /[A-Z]/g;
     let number = /[0-9]/g;
-    let specialCharactersCheck = /[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g
-
 
     if (userPassword.match(lowerCaseCharacter)) {
         lowerCase.classList.add('valid');
@@ -150,18 +138,11 @@ password.onkeyup = () => {
         containNumber.classList.remove('valid');
         containNumber.classList.add('invalid');
     }
-    if (userPassword.length > 8) {
+    if (userPassword.length >= 8) {
         eightCharacters.classList.add('valid');
         eightCharacters.classList.remove('invalid');
     } else {
         eightCharacters.classList.remove('valid');
         eightCharacters.classList.add('invalid');
-    }
-    if (userPassword.match(specialCharactersCheck)) {
-        specialCharacters.classList.add('valid');
-        specialCharacters.classList.remove('invalid');
-    } else {
-        specialCharacters.classList.remove('valid');
-        specialCharacters.classList.add('invalid');
     }
 }
