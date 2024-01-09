@@ -25,6 +25,22 @@
         maxlength="10"
       />
       <span class="error" aria-live="polite"></span><br />
+      <label for="password">Password:</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        required
+        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+      />
+      <span class="error" aria-live="polite"></span>
+      <ul>
+        <li id="eightCharacters">Contains 8 Characters</li>
+        <li id="lowerCase">Contain One Lowercase Character</li>
+        <li id="upperCase">ContainsOne Uppercase Character</li>
+        <li id="containNumber">Contain Numbers</li>
+        <li id="specialCharacters">Contain Special Character</li>
+      </ul>
       <button>Submit</button>
     </form>
   </body>
